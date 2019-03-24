@@ -8,8 +8,10 @@ const { isAuthenticated } = require('./auth');
 /**
  * Validators
  */
-const IS_VALID_TITLE = Joi.string().required().min(1).label("title");
-const IS_VALID_DESCRIPTION = Joi.string().required().min(1).label("description");
+const IS_VALID_COURSE = Joi.object().keys({
+    title:Joi.string().required().min(1).label("title"),
+    description:Joi.string().required().min(1).label("description")
+});
 
 /**
  * Course validator
@@ -21,9 +23,11 @@ const IS_VALID_DESCRIPTION = Joi.string().required().min(1).label("description")
 const whenValidCourse = (req, res, next) => {
     // Extract and validate arguments
     const { title, description } = req.body;
-    Joi.assert(title, IS_VALID_TITLE);
-    Joi.assert(description, IS_VALID_DESCRIPTION);
-    next();
+    Joi.validate({ title, description }, IS_VALID_COURSE, (err, values) => {
+        if (err && err.isJoi)
+            return next({ status:400, message:err.details[0].message });
+        next();
+    });
 }
 
 /**
