@@ -10,7 +10,12 @@ const mongoose = require('mongoose');
 // variable to enable global error logging
 const enableGlobalErrorLogging = process.env.ENABLE_GLOBAL_ERROR_LOGGING === 'true';
 
-mongoose.connect('mongodb://localhost:27017', {useNewUrlParser: true}).then(({ connections }) => {
+const hostName = 'mongodb://localhost:27017//';
+const databaseName = 'fsjstd-restapi';
+
+const joinUrl = (...args) => args.map(arg => arg.replace(/\/+$/gi,'')).join('/');
+
+mongoose.connect(joinUrl(hostName, databaseName), {useNewUrlParser: true}).then(({ connections }) => {
     connections.forEach(connection => {
         if (connection._hasOpened)
             console.log(`Mongoose connected to MongoDB at '${connection.host}:${connection.port}'`)
