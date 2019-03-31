@@ -1,4 +1,4 @@
-# <img src="https://i.ibb.co/6FWgBTN/logo.jpg" height="40" alt="Treehouse Logo"> Fullstack Javascript Tech Degree
+# <img src="https://i.ibb.co/6FWgBTN/logo.jpg" height="36" alt="Treehouse Logo"> Fullstack Javascript Tech Degree
 ## Project 9 - REST API
 
 ### Usage
