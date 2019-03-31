@@ -24,6 +24,7 @@ and navigate too [localhost:5000](localhost:5000)
     - Notify console when database connects successfully
 #### User Model
 Define a Mongoose User data model
+
 | Key           | Type     |
 |---------------|----------|
 | _id           | ObjectId |
@@ -34,6 +35,7 @@ Define a Mongoose User data model
 
 #### Course Model
 Define a Mongoose Course data model
+
 | Key             | Type     |
 |-----------------|----------|
 | _id             | ObjectId |
@@ -45,6 +47,7 @@ Define a Mongoose Course data model
 
 #### User Routes
 All of the following routes are available
+
 | Path        | Method | Returns                        |
 |-------------|--------|--------------------------------|
 | /api/users  | get    | Current Authenticated User     |
@@ -52,6 +55,7 @@ All of the following routes are available
 
 #### Course Routes
 All of the following routes are available
+
 | Path              | Method | Returns                            |
 |-------------------|--------|------------------------------------|
 | /api/courses      | get    | List of courses and owning user    |
@@ -59,6 +63,7 @@ All of the following routes are available
 | /api/courses      | post   | Create and redirect to course      |
 | /api/courses/:id  | put    | Updates course and returns nothing |
 | /api/courses/:id  | delete | Deleted course and returns nothing |
+
 Additional
 + `/api/courses` and `/api/courses/:id` filters the following properties
     - emailAddress
